@@ -1,0 +1,219 @@
+
+/* master styles */
+
+/* grabs body of entire html document */
+body {
+    /* use Abel, but if you cant, use sans-serif */
+    font-family: "Abel" , sans-serif;
+    /* font-family: "Dancing+Script" , sans-serif; */
+    /* gets rid of margin since default is >0px */
+    margin: 0px;
+}
+
+/* css grid --> tool built into css and gives ability to align items
+   similar to box but key differents
+   small things (like nav bar) use flex box
+   larger things, use css grid (general rule)
+*/
+.container{
+    display: grid;
+    /* use grid then create template columns using 1 fractional unit
+       creates columns down entre page
+    */
+    grid-template-columns: 1fr;
+}
+
+/* Nav styles */
+
+.nav-wrapper{
+    /* shifts BOB from lower line to same line*/
+    display: flex;
+    /* shifts BOB from adjacent line to far right*/
+    justify-content: space-between;
+    padding: 38px;
+
+}
+
+.left-side {
+    /* puts divs on same line instead of stack*/
+    display: flex;
+
+}
+
+/* traverses a tree from the html file and only
+changes divs at the end of the "tree"
+*/
+.nav-wrapper > .left-side > div {
+    /* gives horizontal space between divs */
+    margin-right: 20px;
+
+    /* em = % of default size */
+    font-size: 0.9em;
+
+    text-transform: uppercase;
+
+}
+
+.nav-link-wrapper {
+    height: 22px
+    /* wont see this */
+    border-bottom: 1px solid transparent;
+    /* calls whatever part we want to add the animation to
+       does so for .5 seconds
+     */
+    transition: border-bottom 0.5s;
+}
+
+/* changes the headers (Home, About) */
+.nav-link-wrapper a {
+    /* light grey */
+    color: #8a8a8a;
+    /* no underline */
+    text-decoration: none;
+    transition: color 0.5s;
+}
+
+/* hover states / mouse reaction for nav bar
+    - hover (mouse over nav bar) is a psuedo state and this function
+    produces a small border when in hover state
+*/
+.nav-link-wrapper:hover {
+    border-bottom: 1px solid black;
+}
+
+/* makes text black when in hover state, notice "a" */
+.nav-link-wrapper a:hover {
+    color: black;
+}
+
+/* next two functions add border permanently showing which page you're on */
+.active-nav-link {
+    border-bottom: 1px solid black;
+}
+
+.active-nav-link{
+    /* overrides default color behavior */
+    color: black !important;
+}
+
+/* Portfolia styles */
+.portfolio-items-wrapper{
+    display: grid;
+    /* gives each picture its own column */
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.portfolio-item-wrapper{
+    position: relative;
+}
+
+.portfolio-img-background{
+    height: 350px;
+    max-width: 450px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 2px solid black;
+}
+
+/* moves div text from just default sitting below photo to on top of image
+   use flex box on the elements of the text div to adjust it properly
+   (center it, margins, etc)
+ */
+.img-text-wrapper{
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+/* style logos */
+.logo-wrapper img{
+    width: 50%;
+    margin-bottom: 20px;
+}
+ /* gives fade in transition from transparent and leads to hover state */
+.img-text-wrapper .subtitle {
+    transition: 1s;
+    font-weight: 600;
+    color: transparent;
+}
+
+/* edits subtitle style and ".img-text-wrapper:hover" indicates final form when
+   hovering
+  */
+.img-text-wrapper:hover .subtitle{
+    font-weight: 600;
+    color: maroon;
+}
+ /* darken image on hover: javascript will dynamically add and remove this class
+    on hover
+  */
+ .img-darken {
+     transition: 1s;
+     filter: brightness(10%);
+ }
+
+ /* About Page */
+ .two-column-wrapper{
+     display: grid;
+     grid-template-columns: 1fr 1fr 1fr;
+ }
+
+ .profile-image-wrapper img {
+     width: 100%;
+     height: 250px;
+ }
+
+ .profile-content-wrapper {
+     padding: 30px;
+ }
+
+ .profile-content-wrapper h1{
+     color: maroon;
+ }
+
+.profile-content-wrapper h2{
+    color: #000066;
+}
+
+ .profile-content-wrapper2 {
+     padding: 30px;
+ }
+
+ .profile-content-wrapper2 h1{
+     color: yellow;
+ }
+
+.button {
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: crosshair;
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    transition-duration: .8s;
+}
+
+.pie {
+    background-color: white;
+    border: 2px solid maroon;
+    border-radius: 12px;
+    
+}
+
+.pie:hover{
+    color: maroon;
+    background-color: black;
+}
